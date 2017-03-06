@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "FE developer assignment for lastminute.com",
   "scripts": {
-    "start": "node ./scripts/dyson.js"
+    "start": "node ./scripts/dyson.js",
+    "test": "ava"
   },
   "author": "lastminute.com",
   "private": true,
   "devDependencies": {
+    "ava": "^0.18.2",
     "dyson": "git+https://github.com/webpro/dyson.git"
   }
 }

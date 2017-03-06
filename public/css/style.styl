@@ -1,0 +1,96 @@
+@import 'nib'
+
+$keyframe-name = fadein
+@keyframes {$keyframe-name}
+  for i in 0..10
+    {10% * i}
+      opacity (i/10)
+
+html, body
+  margin: 0;
+  font-family: "Lucida Sans", Verdana, sans-serif;
+
+header
+  background-color: rgba(238, 73, 172, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2em;
+
+#hotels
+  @media only screen and (min-width: 640px)
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+.hotel
+  &__list
+    background: rgba(0, 0, 0, .04);
+    border: solid 1px rgba(0, 0, 0, .2);
+    padding: 0;
+
+    li
+      padding: 1.5em;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:not(:last-of-type)
+        border-bottom: solid 1px rgba(0, 0, 0, .2);
+
+  &__details
+    padding: 0 1.5em;
+    margin-left: 1.5em;
+    width: 467px;
+    height: 271px;
+    background-color: rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
+
+    .name
+      font-size: .9em;
+      margin: 0;
+
+    img
+      width: 150px;
+      height: 110px;
+      padding-right: 1.5em;
+      animation: fadein 1s;
+
+    .data
+      flex-grow: 2;
+      animation: fadein 1s;
+
+    .price
+      color: rgba(238, 73, 172, 1);
+      font-weight: bold;
+      text-align: right;
+
+    .rating
+      background-image: url('../images/ratings.png');
+      background-repeat: no-repeat;
+      height: 18px;
+      for row in 0..5
+        &.rating_{row}
+          background-position-y: -18px *row;
+
+@media only screen and (max-width: 640px)
+  #hotels
+    flex-flow: column wrap;
+
+  .hotel
+    &__details
+      width: 90%;
+      padding: 1em;
+      height: 140px;
+      margin: auto;
+
+      img
+        width: 110px;
+        height: 100px;
+        padding-right: .5em;
+
+      .name
+        font-size: .6em;
